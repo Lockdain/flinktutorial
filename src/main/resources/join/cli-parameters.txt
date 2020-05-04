@@ -1,0 +1,1 @@
+--input1 /Users/user/IdeaProjects/Flink/flinktutorial/src/main/resources/join/persons.txt --input2 /Users/user/IdeaProjects/Flink/flinktutorial/src/main/resources/join/locations.txt --output /Users/user/IdeaProjects/Flink/flinktutorial/src/main/resources/join/join-results
