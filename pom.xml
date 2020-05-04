@@ -16,7 +16,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.alexsergeenko.flink.join.RightOuterJoinExample</mainClass>
+                            <mainClass>com.alexsergeenko.flink.join.FullOuterJoinExample</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
