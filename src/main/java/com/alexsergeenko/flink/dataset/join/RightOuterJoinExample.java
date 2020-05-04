@@ -1,4 +1,4 @@
-package com.alexsergeenko.flink.join;
+package com.alexsergeenko.flink.dataset.join;
 
 import org.apache.flink.api.common.functions.JoinFunction;
 import org.apache.flink.api.common.functions.MapFunction;
@@ -8,8 +8,9 @@ import org.apache.flink.api.java.operators.MapOperator;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.api.java.tuple.Tuple3;
 import org.apache.flink.api.java.utils.ParameterTool;
+import org.apache.flink.core.fs.FileSystem;
 
-public class JoinExample {
+public class RightOuterJoinExample {
 
     public static void main(String[] args) throws Exception {
         final ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
@@ -42,17 +43,20 @@ public class JoinExample {
         // The result will be <id, personName, state>
         DataSet<Tuple3<Integer, String, String>> joined =
                 persons
-                        .join(locations)
+                        .rightOuterJoin(locations)
                         .where(0)
                         .equalTo(0)
                 .with(new JoinFunction<Tuple2<Integer, String>, Tuple2<Integer, String>, Tuple3<Integer, String, String>>() {
                     @Override
                     public Tuple3<Integer, String, String> join(Tuple2<Integer, String> person, Tuple2<Integer, String> location) {
+                        if (person == null) {
+                            return new Tuple3<>(location.f0, "NULL", location.f1);
+                        }
                         return new Tuple3<>(person.f0, person.f1, location.f1);
                     }
                 });
 
-        joined.writeAsCsv(params.get("output"), "\n", " ");
-        env.execute("Join Example");
+        joined.writeAsCsv(params.get("output"), "\n", " ", FileSystem.WriteMode.OVERWRITE);
+        env.execute("Right Outer Join Example");
     }
 }

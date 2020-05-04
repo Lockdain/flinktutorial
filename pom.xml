@@ -16,7 +16,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.alexsergeenko.flink.join.FullOuterJoinExample</mainClass>
+                            <mainClass>com.alexsergeenko.flink.datastream.wordcount.WordCountStreaming</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

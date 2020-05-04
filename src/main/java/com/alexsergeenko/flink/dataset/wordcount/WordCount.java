@@ -1,4 +1,4 @@
-package com.alexsergeenko.flink.wordcount;
+package com.alexsergeenko.flink.dataset.wordcount;
 
 import org.apache.flink.api.common.functions.FilterFunction;
 import org.apache.flink.api.common.functions.MapFunction;

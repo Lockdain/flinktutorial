@@ -1,4 +1,4 @@
-package com.alexsergeenko.flink.join;
+package com.alexsergeenko.flink.dataset.join;
 
 import org.apache.flink.api.common.functions.JoinFunction;
 import org.apache.flink.api.common.functions.MapFunction;
