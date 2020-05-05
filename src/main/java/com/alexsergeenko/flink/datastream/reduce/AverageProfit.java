@@ -1,4 +1,4 @@
-package com.alexsergeenko.flink.reduce;
+package com.alexsergeenko.flink.datastream.reduce;
 
 import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.api.common.functions.ReduceFunction;
