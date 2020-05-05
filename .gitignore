@@ -1,6 +1,5 @@
 # Project exclude paths
 /target/
 /src/main/resources/aggregation/sum.out/
-/src/main/java/com/alexsergeenko/flink/datastream/fold/
 /src/main/resources/aggregation/minBy.out/
 /src/main/resources/aggregation/min.out/
